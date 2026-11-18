@@ -1,6 +1,21 @@
+# The Homebrew Cask for the tap hanami117/homebrew-kotora. The published copy lives in that repo
+# (Casks/kotora.rb) and must be kept in sync with this file: change both, or neither.
+# Users install it with: brew install --cask hanami117/kotora/kotora
+#
+# Fill in at release time:
+#   - version   the release version, without the v. From build 2 of a version on (the BUILD file;
+#               a rebuild without code changes) it is "<version>,<build>", e.g. "0.1.0,2".
+#   - sha256    the DMG's checksum (Kotora-<version>.dmg.sha256 on the release)
+# Test: brew audit --cask --strict hanami117/kotora/kotora; brew install --cask …; brew uninstall --zap …
+#
+# homebrew/cask proper needs a notarized app; the tap doesn't. The app is signed ad hoc, so the
+# first launch is refused by Gatekeeper (the caveats below say what to do).
+# The cask installs the same DMG as the website. The app sees the cask's receipt instead, so its
+# update notice points to the package manager and its update check reports the channel "homebrew"
+# (core/src/update.rs).
 cask "kotora" do
-  version "0.4.0"
-  sha256 "8c73aa907a25980c7a7be72c0372b48e7e3e220f70f54050f288ac4c36bf22b6"
+  version "0.4.1"
+  sha256 "96ee351aee35c8a844c2d809795747664ff0853f1eaadc78a3c1f6fb34ab9a80"
 
   url "https://github.com/hanami117/kotora/releases/download/v#{version}/Kotora-#{version}.dmg"
   name "Kotora"
